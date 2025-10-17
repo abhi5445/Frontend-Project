@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FD_Calculator</title>
+  // CSS 
+    <style>
+    body{
+        font-family: Arial, sans-serif;
+        background-color: #0e0818;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+
+    }
+    .container{
+        background-color: rgb(223, 222, 229);
+        border-radius: 5px;
+        padding: 20px;
+        box-shadow: 0px 0px 2px rgba(198,193 ,193 , 0.1 );
+        max-width: 400px;
+        width: 100%;
+
+    }
+    .container{
+   
+         box-shadow: 5px 5px 10px rgba(239, 237, 237, 0.1);  
+
+    }
+    h1{
+        font-size: 20px;
+        text-decoration: underline;
+        text-align: center;
+        margin-bottom: 20px;
+
+    }
+    .form-group{
+        margin-bottom: 10px;
+
+    }
+    .form-group label{
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        
+    }
+    .form-group input{
+        width: 90%;
+        font-size: 15px;
+        padding: 10px;
+        border: 1px solid #0e0d17;
+        border-radius: 5px;
+
+    }
+    .result{
+        font-size: 18px;
+        text-align: center;
+        margin-top: 10px;
+    }
+    .calculator_button{
+        padding: 10px 20px;
+        font-size: 15px;
+        background-color: #0b0d27;
+        color: #e5e6ec;
+        border: none;
+        font-weight: bolder;
+        cursor: pointer;
+        
+
+    }
+    .calculator_button:hover{
+        
+        background-color: #615d99;
+        
+
+    }
+    </style>
+    
+    
+</head>
+<body>
+    <div class="container">
+        <h1>FD Calculator</h1>
+        <div class="form-group">
+            <label for="Principle" >Principle Amount</label>
+            <input type ="number" id="Principle" placeholder="Enter the Principle Amount ">
+        </div>
+        <div class="form-group" >
+            <label for="Interest Rate">Interest Rate </label>
+            <input type ="number "id="rate" placeholder="Enter the Interest Rate  ">
+        </div>
+        <div class="form-group">
+            <labelfor="Tenure">Tenure(In Year)</label>
+            <input type="number" id="Tenure" placeholder="Enter Tenure in Year  ">
+        </div>
+        <button id ="calculator_button" class="calculator_button" >calculate</button>
+        <p id="result" class="result"> Maturity Amount</p>
+    </div>
+  //javascript
+    <script>
+        function calculateMaurityAmount(){
+        const principle=parseFloat(document.getElementById('Principle').value);
+        const interestRate=parseFloat(document.getElementById('rate').value);
+        const tenure=parseFloat(document.getElementById('Tenure').value);
+
+        const maturityAmount = principle +  (principle * interestRate* tenure)/100;
+
+        //perfroming calculation
+        document.getElementById('result').innerText= `Maturity Amount : ${ maturityAmount.toFixed(2)}`;
+
+    }
+    //fetch the event listener to calculate button
+    window.onload = () => {
+        document.getElementById('calculator_button').addEventListener('click',calculateMaurityAmount);}
+    </script>
+    
+</body>
+</html>
